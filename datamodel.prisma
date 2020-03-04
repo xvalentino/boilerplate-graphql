@@ -1,7 +1,14 @@
 type User {
   id: ID! @id
-  first_name: String @unique
+  first_name: String!
   last_name: String!
-  major_id: Int!
   check_in_time: DateTime
+  graduation_date: DateTime
+  majors: [Major!]!
+}
+
+type Major {
+  id: ID! @id
+  external_major_id: Int
+  users: [User!]!
 }
